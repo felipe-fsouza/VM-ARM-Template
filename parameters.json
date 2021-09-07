@@ -1,0 +1,107 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westus2"
+        },
+        "networkInterfaceName": {
+            "value": "nic-vm-win001"
+        },
+        "networkSecurityGroupName": {
+            "value": "VM-WINDOWS-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "Allow_NSG",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "SUB-LAN"
+        },
+        "virtualNetworkName": {
+            "value": "VNET-Olimpiadas"
+        },
+        "addressPrefixes": {
+            "value": [
+                "172.16.0.0/24"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "SUB-LAN",
+                    "properties": {
+                        "addressPrefix": "172.16.0.0/27"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "PIP-VM-WIN"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "VM-WIN-ARM"
+        },
+        "virtualMachineComputerName": {
+            "value": "VM-WIN-ARM"
+        },
+        "virtualMachineRG": {
+            "value": "RG-Olimpiadas"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS1_v2"
+        },
+        "adminUsername": {
+            "value": "admin.tftec"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        },
+        "enableHotpatching": {
+            "value": false
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "UTC"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        },
+        "autoShutdownNotificationEmail": {
+            "value": "admin.tftec@tftecrs.com.br"
+        }
+    }
+}
